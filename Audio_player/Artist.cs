@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace Audio_player
 {
-    class Artist
+     class Artist
     {
         public string Name;
         public string Nickname;
         public string Country;
+
+       
+        public Song[] Songs;
     }
 }

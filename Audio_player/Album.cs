@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace Audio_player
 {
-    class Band
+    class Album
     {
-        public string Title;
-        public string Genre;
+        public string Name;
+        public string Path;
         public int Year;
-        public bool IsExist;
 
-        public Artist[] Artists;
+        public Song[] Songs;
     }
 }

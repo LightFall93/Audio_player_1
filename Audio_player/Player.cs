@@ -6,16 +6,42 @@ using System.Threading.Tasks;
 
 namespace Audio_player
 {
-    class Player
+   class Player
     {
-        public static int Volume;
-        public static int step;
-        public static bool playing;
-        public static bool Locked = false;
-        private const int maxVolume = 100;
-        private const int minVolume = 100;
+        private static int volume;
+        public int step;
+        private  bool playing;
+        public  bool Locked = false;
+        public const int maxVolume = 300;
+        public const int minVolume = 300;
+        public  Song[] Songs;
 
+         bool Playing
+        {
+            get { return playing; }
+        }
 
+          public  int Volume
+         {
+             get { return volume; }
+             set
+             {
+                 if (value >300)
+                 {
+                    volume = 300;
+                 }
+                 else if(value <0)
+                 {
+                     volume = 1;
+
+                 }
+
+                 else
+                 {
+                     volume = value;
+                 }
+             }
+         }
 
         public void GetInfo()
         {
@@ -23,39 +49,39 @@ namespace Audio_player
         }
 
 
-        public static void VolumeUp()
+        public static  void VolumeUp()
         {
-            Volume += 1;
-            Console.WriteLine("Volume is Up " + Volume);
+            volume += 50;
+            Console.WriteLine("volume is Up " + volume);
         }
 
-        public static void VolumeDown()
+        public  void VolumeDown()
         {
-            Volume -= 1;
-            Console.WriteLine("Volume is down " + Volume);
+            volume -= 50;
+            Console.WriteLine("volume is down " + volume);
         }
 
-        public static void VolumeChange()
+        public  void VolumeChange()
         {
             step = int.Parse(Console.ReadLine());
-            Volume += step;
-            Console.WriteLine("Volume changed to " + Volume);
+            volume += step;
+            Console.WriteLine("volume changed to " + volume);
 
         }
 
-        public static void Lock()
+        public  void Lock()
         {
             Locked = true;
             Console.WriteLine("player locked, Locked= " + Locked);
         }
 
-        public static void Unlock()
+        public  void Unlock()
         {
             Locked = false;
             Console.WriteLine("player unlocked, Locked= " + Locked);
         }
 
-        public static bool  Stop()
+        public  bool  Stop()
         {
             if (Locked == false)
             {
@@ -63,11 +89,11 @@ namespace Audio_player
 
             }
             Console.WriteLine("player stopped ");
-            return playing ;
+            return Playing ;
             
         }
 
-        public static bool Start()
+        public  bool Start()
         {
             if (Locked == false)
             {
@@ -75,8 +101,19 @@ namespace Audio_player
 
             }
             Console.WriteLine("player start playing ");
-            return playing;
 
+            return playing;
         }
+
+        public  void Play()
+        {
+
+            for (int i = 0; i < Songs.Length; i++)
+            {
+                Console.WriteLine(Songs[i].Title);
+                System.Threading.Thread.Sleep(2000);
+            }
+        }
+
     }
 }
