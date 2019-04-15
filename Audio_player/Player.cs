@@ -43,12 +43,6 @@ namespace Audio_player
 
         }
 
-        public static void Start()
-        {
-            playing = true;
-            Console.WriteLine("start  playing =" + playing);
-        }
-
         public static void Lock()
         {
             Locked = true;
@@ -59,6 +53,30 @@ namespace Audio_player
         {
             Locked = false;
             Console.WriteLine("player unlocked, Locked= " + Locked);
+        }
+
+        public static bool  Stop()
+        {
+            if (Locked == false)
+            {
+                playing = false;
+
+            }
+            Console.WriteLine("player stopped ");
+            return playing ;
+            
+        }
+
+        public static bool Start()
+        {
+            if (Locked == false)
+            {
+                playing = true;
+
+            }
+            Console.WriteLine("player start playing ");
+            return playing;
+
         }
     }
 }

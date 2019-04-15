@@ -12,6 +12,8 @@ namespace Audio_player
         {
             Player player = new Player();
 
+            //Player.Stop();
+            //Player.Start();
             //Player.Lock();
             //Player.Unlock();
             //Player.VolumeChange();
