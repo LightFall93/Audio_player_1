@@ -8,10 +8,10 @@ namespace Audio_player
 {
    class Player
     {
-        private static int volume;
+        private static  int volume;
         public int step;
-        private  bool playing;
-        public  bool Locked = false;
+        private static  bool playing;
+        public static  bool Locked = false;
         public const int maxVolume = 300;
         public const int minVolume = 300;
         public  Song[] Songs;
@@ -21,7 +21,7 @@ namespace Audio_player
             get { return playing; }
         }
 
-          public  int Volume
+          public static int Volume
          {
              get { return volume; }
              set
@@ -55,7 +55,7 @@ namespace Audio_player
             Console.WriteLine("volume is Up " + volume);
         }
 
-        public  void VolumeDown()
+        public static  void VolumeDown()
         {
             volume -= 50;
             Console.WriteLine("volume is down " + volume);
@@ -93,7 +93,7 @@ namespace Audio_player
             
         }
 
-        public  bool Start()
+        public static  bool Start()
         {
             if (Locked == false)
             {

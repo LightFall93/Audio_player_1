@@ -9,7 +9,7 @@ namespace Audio_player
     class Program
     {
 
-        static void Main(string[] args)
+         static void Main(string[] args)
         {
             
 
@@ -31,8 +31,8 @@ namespace Audio_player
 
 
 
-
-            /* while (true)
+            Player player1 = new Player();
+            /*while (true)
              {
                  switch (Console.ReadLine())
                  {
@@ -56,9 +56,11 @@ namespace Audio_player
                  }
                  }*/
 
-            Player player1 = new Player();
 
+            Player.Volume = 500;
+            Console.WriteLine("volume is Up " + Player.Volume);
             //Player.Playing = false;//checked
+
             //Player.GetInfo();
             //Player.Play();
             //Player.Stop();
