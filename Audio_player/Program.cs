@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Security;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -48,6 +49,12 @@ namespace Audio_player
                  }
                  }*/
 
+            //CreateDefaultSong();
+
+            string Name = "song name";
+            CreateNameSong(Name);
+
+            //CreateSong(string Name, int time, string place, string words, string type);
 
             //Player.Volume = 500;
             //Console.WriteLine("volume is Up " + Player.Volume);//checked
@@ -68,7 +75,7 @@ namespace Audio_player
             Console.ReadKey();
         }
 
-         private object CreateDefaultSong()
+         private static object CreateDefaultSong()
          {
              Random rand = new Random();
             Song song_default = new Song
@@ -81,17 +88,18 @@ namespace Audio_player
                 Artist = new Artist(),
                 Playlist = new Playlist()
             };
-
+            Console.WriteLine(song_default.Duration);
             return song_default;
-         }
+            
+        }
 
-         private object CreateNameSong(string Name)
+         private static object CreateNameSong(string Name)
          {
              Song song_name = new Song();
              CreateDefaultSong();
              song_name.Title = Name;
-
-             return song_name;
+             Console.WriteLine(song_name.Duration+ song_name.Title);
+            return song_name;
          }
 
          private object CreateSong(string Name,int time,string place,string words,string type)
