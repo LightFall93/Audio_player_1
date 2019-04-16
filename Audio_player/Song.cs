@@ -17,5 +17,6 @@ namespace Audio_player
         public Artist Artist;
         
         public Playlist Playlist;
+
     }
 }

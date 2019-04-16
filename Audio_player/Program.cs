@@ -11,11 +11,8 @@ namespace Audio_player
 
          static void Main(string[] args)
         {
-            
 
-
-
-            var song1 = new Song();
+            /*var song1 = new Song();
             song1.Title = "I Walk the Line";
             song1.Duration = 300;
             song1.Artist = new Artist { Name = "Johnny Cash" };
@@ -23,15 +20,10 @@ namespace Audio_player
             var song2 = new Song();
             song2.Title = "Big Iron";
             song2.Duration = 300;
-            song2.Artist = new Artist { Name = "Marty Robbins" };
+            song2.Artist = new Artist { Name = "Marty Robbins" };*/
 
 
-
-
-
-
-
-            Player player1 = new Player();
+                Player player1 = new Player();
             /*while (true)
              {
                  switch (Console.ReadLine())
@@ -57,8 +49,8 @@ namespace Audio_player
                  }*/
 
 
-            Player.Volume = 500;
-            Console.WriteLine("volume is Up " + Player.Volume);
+            //Player.Volume = 500;
+            //Console.WriteLine("volume is Up " + Player.Volume);//checked
             //Player.Playing = false;//checked
 
             //Player.GetInfo();
@@ -73,10 +65,51 @@ namespace Audio_player
             //Player.VolumeDown();
 
 
-
-
-
             Console.ReadKey();
         }
+
+         private object CreateDefaultSong()
+         {
+             Random rand = new Random();
+            Song song_default = new Song
+            {
+                Duration = rand.Next(101),
+                Title = "default song",
+                Path = "default song",
+                Lyrics = "default song",
+                Genre = "default song",
+                Artist = new Artist(),
+                Playlist = new Playlist()
+            };
+
+            return song_default;
+         }
+
+         private object CreateNameSong(string Name)
+         {
+             Song song_name = new Song();
+             CreateDefaultSong();
+             song_name.Title = Name;
+
+             return song_name;
+         }
+
+         private object CreateSong(string Name,int time,string place,string words,string type)
+         {
+             Random rand = new Random();
+            Song song_name = new Song
+            {
+                Duration = time,
+                Title = Name,
+                Path = place,
+                Lyrics = words,
+                Genre = type,
+                Artist = new Artist(),
+                Playlist = new Playlist()
+            };
+
+            return song_name;
+         }
+
     }
 }
