@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ namespace Audio_player
 {
    class Player
     {
+
         private static  int volume;
         public int step;
         private static  bool playing;
@@ -16,7 +18,13 @@ namespace Audio_player
         public const int minVolume = 300;
         public  Song[] Songs;
 
-         bool Playing
+        public int Duration;
+        public string Title;
+        public string Path;
+        public string Lyrics;
+        public string Genre;
+
+        bool Playing
         {
             get { return playing; }
         }
@@ -42,6 +50,8 @@ namespace Audio_player
                  }
              }
          }
+
+          
 
         public void GetInfo()
         {
@@ -115,5 +125,28 @@ namespace Audio_player
             }
         }
 
+        public static void Add (params string[] songs)
+        {
+
+          
+            
+
+            /*List<Player> songs = new List<Player>();
+            songs.Add(new Player { Title = "eye of a tiger", Duration = 500, Genre = "rock" });
+            songs.Add(new Player { Title = "smooth criminal", Duration = 500, Genre = "pop" });
+            songs.Add(new Player { Title = "ring of fire", Duration = 500, Genre = "jazz" });*/
+
+        }
+
+        public static void Add2()
+        {
+
+
+            List<Player> songs = new List<Player>();
+            songs.Add(new Player { Title = "eye of a tiger", Duration = 500, Genre = "rock" });
+            songs.Add(new Player { Title = "smooth criminal", Duration = 500, Genre = "pop" });
+            songs.Add(new Player { Title = "ring of fire", Duration = 500, Genre = "jazz" });
+
+        }
     }
 }

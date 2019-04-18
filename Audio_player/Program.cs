@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Security;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Audio_player
@@ -10,55 +11,33 @@ namespace Audio_player
     class Program
     {
 
-         static void Main(string[] args)
-        {
 
-            /*var song1 = new Song();
-            song1.Title = "I Walk the Line";
-            song1.Duration = 300;
-            song1.Artist = new Artist { Name = "Johnny Cash" };
+        static void Main(string[] args)
+         {
 
-            var song2 = new Song();
-            song2.Title = "Big Iron";
-            song2.Duration = 300;
-            song2.Artist = new Artist { Name = "Marty Robbins" };*/
-
-
-                Player player1 = new Player();
             /*while (true)
-             {
-                 switch (Console.ReadLine())
-                 {
-                     case "up":
-                     {
-                         Player.VolumeUp();
-                     }
-                         break;
+            {
+                switch (Console.ReadLine())
+                {
+                    case "up":
+                    {
+                        Player.VolumeUp();
+                    }
+                        break;
 
-                     case "down":
-                     {
-                         Player.VolumeDown();
-                     }
-                         break;
+                    case "down":
+                    {
+                        Player.VolumeDown();
+                    }
+                        break;
 
-                     case "s":
-                     {
-                         Player.Start();
-                     }
-                         break;
-                 }
-                 }*/
-
-            //CreateDefaultSong();
-
-            string Name = "song name";
-            CreateNameSong(Name);
-
-            //CreateSong(string Name, int time, string place, string words, string type);
-
-            //Player.Volume = 500;
-            //Console.WriteLine("volume is Up " + Player.Volume);//checked
-            //Player.Playing = false;//checked
+                    case "s":
+                    {
+                        Player.Start();
+                    }
+                        break;
+                }
+                }*/
 
             //Player.GetInfo();
             //Player.Play();
@@ -70,12 +49,25 @@ namespace Audio_player
             //Player.Start();
             //Player.VolumeUp();
             //Player.VolumeDown();
-
+            //Player player1 = new Player();
+            //Player.Volume = 500;
+            //Console.WriteLine("volume is Up " + Player.Volume);//checked
+            //Player.Playing = false;//checked
+            //CreateSong(string Name, int time, string place, string words, string type);
+            //CreateDefaultSong();
+            //string Name = "song name";
+            //CreateNameSong(Name);
+            //Player.Add("Название песни 1","Название песни 2");
+            //Create();
+            //AddArtist();
+            //AddArtist(Name:"dam");
+            //AddAlbum();
+            //AddAlbum(Name:"dam",Year:'1');
 
             Console.ReadKey();
         }
 
-         private static object CreateDefaultSong()
+         private static object Create()
          {
              Random rand = new Random();
             Song song_default = new Song
@@ -93,19 +85,19 @@ namespace Audio_player
             
         }
 
-         private static object CreateNameSong(string Name)
+         private static object Create(string Name)
          {
              Song song_name = new Song();
-             CreateDefaultSong();
+             Create();
              song_name.Title = Name;
              Console.WriteLine(song_name.Duration+ song_name.Title);
             return song_name;
          }
 
-         private object CreateSong(string Name,int time,string place,string words,string type)
+         private object Create(string Name,int time,string place,string words,string type)
          {
              Random rand = new Random();
-            Song song_name = new Song
+            Song song_name = new Song()
             {
                 Duration = time,
                 Title = Name,
@@ -118,6 +110,55 @@ namespace Audio_player
 
             return song_name;
          }
+
+
+        private static void Create(ref Song song1, ref Song song2)
+        {
+
+             Random rand = new Random();
+             Song[] songs = new Song[3];
+            
+
+             int MinDuration = 0, MaxDuration = 0, TotalDuration = 0;
+             for (int i = 0; i < songs.Length; i++)
+             {
+                 var songs1 = new Song();
+                 songs1.Title = "Song" + i;
+                 songs1.Duration = rand.Next(501);
+                 songs1.Artist = new Artist();
+                 songs[i] = songs1;
+                 TotalDuration += songs1.Duration;
+                 MinDuration = songs1.Duration < MinDuration ? songs1.Duration : MinDuration;
+                 MaxDuration = songs1.Duration > MaxDuration ? songs1.Duration : MaxDuration;
+                
+             }
+
+
+
+             
+        }
+
+        private static object AddArtist(string Name = default(string))
+        {
+            Artist artist1 = new Artist();
+
+            Name = "Unknown Artist";
+            Console.WriteLine(Name);
+            return artist1;
+        }
+
+        private static object AddAlbum(string Name = default(string), char Year = default(char))
+        {
+            Album album1 = new Album();
+
+            Name = "Unknown Album";
+            Year = '-';
+            Console.WriteLine($""+Name +" "+ Year);
+            return album1;
+        }
+
+
+
 
     }
 }
