@@ -138,15 +138,7 @@ namespace Audio_player
 
         }
 
-        public static void Add2()
-        {
+        
 
-
-            List<Player> songs = new List<Player>();
-            songs.Add(new Player { Title = "eye of a tiger", Duration = 500, Genre = "rock" });
-            songs.Add(new Player { Title = "smooth criminal", Duration = 500, Genre = "pop" });
-            songs.Add(new Player { Title = "ring of fire", Duration = 500, Genre = "jazz" });
-
-        }
     }
 }
