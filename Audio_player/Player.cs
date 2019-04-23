@@ -115,13 +115,22 @@ namespace Audio_player
             return playing;
         }
 
-        public  void Play()
+        public  void Play(bool loop)
         {
-
-            for (int i = 0; i < Songs.Length; i++)
+            loop = false;
+            int a=0;
+            if (loop == false)
             {
+
+                 a = Songs.Length - 1;
+
+            }
+            for (int i = 0; i < a; i++)
+            {
+
                 Console.WriteLine(Songs[i].Title);
                 System.Threading.Thread.Sleep(2000);
+
             }
         }
 
@@ -138,7 +147,96 @@ namespace Audio_player
 
         }
 
-        
+        public static void Add2()
+        {
+
+
+            List<Player> songs = new List<Player>();
+            songs.Add(new Player { Title = "eye of a tiger", Duration = 500, Genre = "rock", Lyrics="lalalalalaalalalala" });
+            songs.Add(new Player { Title = "smooth criminal", Duration = 500, Genre = "pop", Lyrics = "lalalalalaalalalala" });
+            songs.Add(new Player { Title = "Kickapoo", Duration = 260, Genre = "rock", Lyrics = "lalalalalaalalalala" });
+            songs.Add(new Player { Title = "rdasf", Duration = 232, Genre = "jazzpunk", Lyrics = "lalalalalaalalalala" });
+            songs.Add(new Player { Title = "raaa", Duration = 522, Genre = "electro-swing", Lyrics = "lalalalalaalalalala" });
+
+        }
+
+        public static void Shuffle()
+        {
+            
+            List<Player> songs = new List<Player>();
+            Add2();
+            List<Player> songs2 = new List<Player>();
+            for (int i = 0; i < 4; i++)
+            {
+                songs2.Insert(i, songs[i+1]);
+                songs2.Insert(i+1, songs[i]);
+
+
+            }
+        }
+
+        public static void ShowLyr()
+        {
+
+            List<Player> songs = new List<Player>();
+            //Add2();
+
+            songs.Add(new Player { Title = "eye of a tiger", Duration = 500, Genre = "rock", Lyrics = "lalalalalaalalalala" });
+            songs.Add(new Player { Title = "smooth criminal", Duration = 500, Genre = "pop", Lyrics = "lalalalalaalalalala" });
+            songs.Add(new Player { Title = "Kickapoo", Duration = 260, Genre = "rock", Lyrics = "lalalalalaalalalala" });
+            songs.Add(new Player { Title = "rdasf", Duration = 232, Genre = "jazzpunk", Lyrics = "lalalalalaalalalala" });
+            songs.Add(new Player { Title = "raaa", Duration = 522, Genre = "electro-swing", Lyrics = "lalalalalaalalalala" });
+
+            foreach (var item in songs)
+            {
+                Console.WriteLine(item.Title +" " + item.Lyrics);
+            }
+        }
+
+        public static void SortByTitle()
+        {
+
+            List<Player> songs = new List<Player>();
+
+            songs.Add(new Player
+                {Title = "eye of a tiger", Duration = 500, Genre = "rock", Lyrics = "lalalalalaalalalala"});
+            songs.Add(new Player
+                {Title = "smooth criminal", Duration = 500, Genre = "pop", Lyrics = "lalalalalaalalalala"});
+            songs.Add(new Player {Title = "Kickapoo", Duration = 260, Genre = "rock", Lyrics = "lalalalalaalalalala"});
+            songs.Add(new Player {Title = "rdasf", Duration = 232, Genre = "jazzpunk", Lyrics = "lalalalalaalalalala"});
+            songs.Add(new Player
+                {Title = "raaa", Duration = 522, Genre = "electro-swing", Lyrics = "lalalalalaalalalala"});
+
+            List<Player> songs22 = new List<Player>();
+
+            foreach (var item in songs)
+            {
+                if (item.Title == "criminal")
+                {
+
+                    songs22.Sort();
+                }
+            }
+
+
+
+            for (int i = 0; i < 4; i++)
+            {
+                songs22.Insert(i, songs[i + 1]);
+                songs22.Insert(i + 1, songs[i]);
+
+
+            }
+
+
+
+
+        }
+
+
+
+
+
 
     }
 }
