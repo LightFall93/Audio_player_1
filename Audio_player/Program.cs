@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Security;
@@ -63,15 +64,15 @@ namespace Audio_player
             //AddArtist(Name:"dam");
             //AddAlbum();
             //AddAlbum(Name:"dam",Year:'1');
-            //Player.Shuffle();
             //Player.ShowLyr();
-            //Player.SortByTitle();
 
-            //Player.Add();
-            //Player.SortByTitle();
+            //Player.Add2();
             //Player.Shuffle();
             //Player.Play();
+            //Player.Shuffle();
 
+
+            //Player.SortByTitle();
             Console.ReadKey();
         }
 
