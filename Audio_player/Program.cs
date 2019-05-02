@@ -15,7 +15,7 @@ namespace Audio_player
 
         static void Main(string[] args)
          {
-
+             Player player_new = new Player();
             /*while (true)
             {
                 switch (Console.ReadLine())
@@ -39,7 +39,6 @@ namespace Audio_player
                         break;
                 }
                 }*/
-
             //Player.GetInfo();
             //Player.Play();
             //Player.Stop();
@@ -64,15 +63,14 @@ namespace Audio_player
             //AddArtist(Name:"dam");
             //AddAlbum();
             //AddAlbum(Name:"dam",Year:'1');
-            //Player.ShowLyr();
-
-            //Player.Add2();
-            //Player.Shuffle();
-            //Player.Play();
-            //Player.Shuffle();
 
 
-            //Player.SortByTitle();
+            player_new.AddSongs();
+            //player_new.Shuffle();
+            //player_new.Play(false);
+            //player_new.Play(true);
+            player_new.SortByTitle();
+
             Console.ReadKey();
         }
 
