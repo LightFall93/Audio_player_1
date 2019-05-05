@@ -127,7 +127,7 @@ namespace Audio_player
             songs.Add(new Song { Title = "2 smooth criminal", Duration = 500, Genre = "pop", Lyrics = "lalalalalaalalalala" });
             songs.Add(new Song { Title = "3 Kickapoo", Duration = 260, Genre = "rock", Lyrics = "lalalalalaalalalala" });
             songs.Add(new Song { Title = "4 Гладкие Криминал", Duration = 232, Genre = "k-pop", Lyrics = "Ты в порядке Саня?" });
-            songs.Add(new Song { Title = "5 MACHINE", Duration = 522, Genre = "??", Lyrics = "...." });
+            songs.Add(new Song { Title = "5 MACHINE", Duration = 522, Genre = "??", Lyrics = "01010000100010101101" });
             songs.Add(new Song { Title = "6 Cancion del mariachi ", Duration = 500, Genre = "ohno", Lyrics = "lala2" });
             songs.Add(new Song { Title = "7 San Francisco", Duration = 500, Genre = "pop4", Lyrics = "lala3" });
             songs.Add(new Song { Title = "8 Have You Ever Seen The Rain", Duration = 500, Genre = "pop5", Lyrics = "lalads3" });
@@ -146,28 +146,42 @@ namespace Audio_player
         {
             AddSongs();
            
-            loop = false;
-            int a=0;
             if (loop == false)
             {
 
-                 a = songs.Capacity - 1;
+                for (int i = 0; i < 1; i++)
+                {
 
+                    Console.WriteLine("Title: " + songs[i].Title);
+                    System.Threading.Thread.Sleep(20);
+                    Console.WriteLine("Слова песни(Lyrics): " + songs[i].Lyrics);
+                    System.Threading.Thread.Sleep(20);
+                }
             }
-            for (int i = 0; i < a; i++)
+
+            else
             {
 
-                Console.WriteLine("Title: "+songs[i].Title+" /Lyrics: " + songs[i].Lyrics);
-                System.Threading.Thread.Sleep(2000);
+                do
+                {
+
+               
+                 for (int i = 0; i < songs.Count; i++)
+                  {
+                      Console.WriteLine("Title: " + songs[i].Title);
+                      System.Threading.Thread.Sleep(2000);
+                      Console.WriteLine("Слова песни(Lyrics): " + songs[i].Lyrics);
+                      System.Threading.Thread.Sleep(2000);
+                    }
+                 Console.WriteLine("Плэйлист проигрывается ещё раз");
+                } while (true);
 
             }
-
-           
         }
 
       
 
-        public List<Song> Shuffle()
+        public void Shuffle()
         {
             AddSongs();
             List<Song> songs_shuffled = new List<Song>();
@@ -209,7 +223,9 @@ namespace Audio_player
 
                 Console.WriteLine(d.Title + " " + d.Duration + " " + d.Genre + " " + d.Lyrics);
             }
-            return songs_shuffled;
+
+            songs = songs_shuffled;
+
         }
        
         public  void ShowLyr()
