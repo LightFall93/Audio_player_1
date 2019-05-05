@@ -173,7 +173,7 @@ namespace Audio_player
                       Console.WriteLine("Слова песни(Lyrics): " + songs[i].Lyrics);
                       System.Threading.Thread.Sleep(2000);
                     }
-                 Console.WriteLine("Плэйлист проигрывается ещё раз");
+                 Console.WriteLine("Плэйлист проигрывается ещё раз  ");
                 } while (true);
 
             }
