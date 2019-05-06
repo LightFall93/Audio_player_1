@@ -168,9 +168,9 @@ namespace Audio_player
                  for (int i = 0; i < songs.Count; i++)
                   {
                       Console.WriteLine("Песня (Title): " + songs[i].Title);
-                      System.Threading.Thread.Sleep(200);
+                      System.Threading.Thread.Sleep(2000);
                       Console.WriteLine("Слова песни(Lyrics): " + songs[i].Lyrics);
-                      System.Threading.Thread.Sleep(200);
+                      System.Threading.Thread.Sleep(2000);
                       Console.WriteLine(" ");
                     }
                  Console.WriteLine("Плэйлист проигрывается ещё раз  ");
@@ -261,10 +261,10 @@ namespace Audio_player
 
             List<Song> songs_sorted = new List<Song>();
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < songs.Count; i++)
             {
 
-            for (int j = 0; j < 10; j++)
+            for (int j = 0; j < songs.Count; j++)
             {
                 if (title_list[i] == songs[j].Title)
                 {
