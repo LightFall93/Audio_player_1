@@ -123,58 +123,59 @@ namespace Audio_player
 
         public List<Song> AddSongs()
         {
-            songs.Add(new Song { Title = "1 eye of a tiger", Duration = 500, Genre = "rock", Lyrics = "lalalalalaalalalala" });
-            songs.Add(new Song { Title = "2 smooth criminal", Duration = 500, Genre = "pop", Lyrics = "lalalalalaalalalala" });
-            songs.Add(new Song { Title = "3 Kickapoo", Duration = 260, Genre = "rock", Lyrics = "lalalalalaalalalala" });
-            songs.Add(new Song { Title = "4 Гладкие Криминал", Duration = 232, Genre = "k-pop", Lyrics = "Ты в порядке Саня?" });
-            songs.Add(new Song { Title = "5 MACHINE", Duration = 522, Genre = "??", Lyrics = "01010000100010101101" });
-            songs.Add(new Song { Title = "6 Cancion del mariachi ", Duration = 500, Genre = "ohno", Lyrics = "lala2" });
-            songs.Add(new Song { Title = "7 San Francisco", Duration = 500, Genre = "pop4", Lyrics = "lala3" });
-            songs.Add(new Song { Title = "8 Have You Ever Seen The Rain", Duration = 500, Genre = "pop5", Lyrics = "lalads3" });
-            songs.Add(new Song { Title = "9 Ghost Riders In The Sky", Duration = 500, Genre = "pop6", Lyrics = "lala23" });
-            songs.Add(new Song { Title = "10 the end", Duration = 500, Genre = "pop7", Lyrics = " yey" });
+            songs.Add(new Song { Title = "eye of a tiger (1)", Duration = 500, Genre = "rock", Lyrics = "lalalalalaalalalala" });
+            songs.Add(new Song { Title = "smooth criminal (2)", Duration = 500, Genre = "pop", Lyrics = "lalalalalaalalalala" });
+            songs.Add(new Song { Title = "Kickapoo (3)", Duration = 260, Genre = "rock", Lyrics = "lalalalalaalalalala" });
+            songs.Add(new Song { Title = "Help (4)", Duration = 232, Genre = "k-pop", Lyrics = "Help, i need somebody" });
+            songs.Add(new Song { Title = "MACHINE (5)", Duration = 522, Genre = "??", Lyrics = "01010000100010101101" });
+            songs.Add(new Song { Title = "Cancion del mariachi (6)", Duration = 500, Genre = "ohno", Lyrics = "lalalalalaalalalala2" });
+            songs.Add(new Song { Title = "San Francisco (7)", Duration = 500, Genre = "pop4", Lyrics = "lalalalalaalalalala" });
+            songs.Add(new Song { Title = "BFG Division (8)", Duration = 500, Genre = "hell", Lyrics = "...lalalalalaalalalala" });
+            songs.Add(new Song { Title = "Ghost Riders In The Sky (9)", Duration = 500, Genre = "pop6", Lyrics = "lalalalalaalalalala" });
+            songs.Add(new Song { Title = "the end 10 (10)", Duration = 500, Genre = "pop7", Lyrics = " lalalalalaalalalala" });
 
             foreach (Song p in songs)
             {
                 Console.WriteLine(p.Title + " " + p.Duration + " " + p.Genre + " " + p.Lyrics);
             }
-
+            Console.WriteLine(" ");
             return songs;
         }
 
         public void  Play(bool loop)// Heres Play*/////////////////////////////
         {
-            AddSongs();
+            
            
             if (loop == false)
             {
-
-                for (int i = 0; i < 1; i++)
+                for (int i = 0; i < songs.Count; i++)
                 {
-
-                    Console.WriteLine("Title: " + songs[i].Title);
-                    System.Threading.Thread.Sleep(20);
+                    Console.WriteLine("Песня (Title): " + songs[i].Title);
+                    System.Threading.Thread.Sleep(2000);
                     Console.WriteLine("Слова песни(Lyrics): " + songs[i].Lyrics);
-                    System.Threading.Thread.Sleep(20);
+                    System.Threading.Thread.Sleep(2000);
+                    Console.WriteLine(" ");
                 }
             }
 
             else
             {
-
+                int z = 0;
                 do
                 {
-
+                    
                
                  for (int i = 0; i < songs.Count; i++)
                   {
-                      Console.WriteLine("Title: " + songs[i].Title);
-                      System.Threading.Thread.Sleep(2000);
+                      Console.WriteLine("Песня (Title): " + songs[i].Title);
+                      System.Threading.Thread.Sleep(200);
                       Console.WriteLine("Слова песни(Lyrics): " + songs[i].Lyrics);
-                      System.Threading.Thread.Sleep(2000);
+                      System.Threading.Thread.Sleep(200);
+                      Console.WriteLine(" ");
                     }
                  Console.WriteLine("Плэйлист проигрывается ещё раз  ");
-                } while (true);
+                 z++;
+                } while (z<5);
 
             }
         }
@@ -183,7 +184,7 @@ namespace Audio_player
 
         public void Shuffle()
         {
-            AddSongs();
+           
             List<Song> songs_shuffled = new List<Song>();
 
             for (int j = 1; j <= songs.Capacity; j += 3)
@@ -214,7 +215,7 @@ namespace Audio_player
                 else { break; }
             }
 
-            Console.WriteLine("");
+           /* Console.WriteLine("");
             Console.WriteLine("После сортировки");
             Console.WriteLine("");
 
@@ -222,29 +223,12 @@ namespace Audio_player
             {
 
                 Console.WriteLine(d.Title + " " + d.Duration + " " + d.Genre + " " + d.Lyrics);
-            }
+            }*/
 
             songs = songs_shuffled;
 
         }
        
-        public  void ShowLyr()
-        {
-
-            //Add2();
-
-            songs.Add(new Song { Title = "eye of a tiger", Duration = 500, Genre = "rock", Lyrics = "lalalalalaalalalala" });
-            songs.Add(new Song { Title = "smooth criminal", Duration = 500, Genre = "pop", Lyrics = "lalalalalaalalalala" });
-            songs.Add(new Song { Title = "Kickapoo", Duration = 260, Genre = "rock", Lyrics = "lalalalalaalalalala" });
-            songs.Add(new Song { Title = "rdasf", Duration = 232, Genre = "jazzpunk", Lyrics = "lalalalalaalalalala" });
-            songs.Add(new Song { Title = "raaa", Duration = 522, Genre = "electro-swing", Lyrics = "lalalalalaalalalala" });
-
-            foreach (var item in songs)
-            {
-                Console.WriteLine(item.Title +" " + item.Lyrics);
-            }
-           
-        }
 
         public string Title2
         {
@@ -260,17 +244,39 @@ namespace Audio_player
 
         public  void SortByTitle() 
         {
-            foreach (Song o in songs)
-            {
-                Console.WriteLine(o.Title + " " + o.Duration + " " + o.Genre + " " + o.Lyrics);
-            }
-            ArrayList songssorts = new ArrayList();
+            List<string> title_list = new List<string>();
 
-            foreach (Song o in songs)
+            for (int i = 0; i < songs.Count; i++)
             {
-                songssorts.Add(Title);
+                title_list.Add(songs[i].Title);
+
             }
 
+            title_list.Sort();
+
+            foreach (string d in title_list)
+            {
+                //Console.WriteLine(d);
+            }
+
+            List<Song> songs_sorted = new List<Song>();
+
+            for (int i = 0; i < 10; i++)
+            {
+
+            for (int j = 0; j < 10; j++)
+            {
+                if (title_list[i] == songs[j].Title)
+                {
+                    songs_sorted.Add(songs[j]);
+                    break;
+                }
+                else { }
+            }
+
+            }
+
+            songs = songs_sorted;
         }
 
         

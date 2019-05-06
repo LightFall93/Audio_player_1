@@ -63,14 +63,12 @@ namespace Audio_player
             //AddArtist(Name:"dam");
             //AddAlbum();
             //AddAlbum(Name:"dam",Year:'1');
-            //player_new.AddSongs();
+            player_new.AddSongs();
             //player_new.Shuffle();
-
-            //player_new.Play(false);
-            player_new.Play(true);
             
-            //player_new.SortByTitle();
-
+            //player_new.Play(true);
+            player_new.SortByTitle();
+            player_new.Play(false);
             Console.ReadKey();
         }
 
