@@ -142,7 +142,7 @@ namespace Audio_player
             return songs;
         }
 
-        public void  Play(bool loop)// Heres Play*/////////////////////////////
+        public void  Play(bool loop)// Heres Plays metod*/////////////////////////////
         {
             
            
