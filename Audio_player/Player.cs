@@ -17,16 +17,13 @@ namespace Audio_player
         public   bool Locked = false;
         public const int maxVolume = 300;
         public const int minVolume = 300;
-        //public  Song[] Songs;
-
         public int Duration;
         public string Genre;
         public string Lyrics; 
         public string Path;
-
+        public string Title;
         public List<Song> songs = new List<Song>();
 
-        public string Title;
         
 
         bool Playing
@@ -123,20 +120,44 @@ namespace Audio_player
 
         public List<Song> AddSongs()
         {
-            songs.Add(new Song { Title = "eye of a tiger (1)", Duration = 500, Genre = "rock", Lyrics = "lalalalalaalalalala" });
-            songs.Add(new Song { Title = "smooth criminal (2)", Duration = 500, Genre = "pop", Lyrics = "lalalalalaalalalala" });
-            songs.Add(new Song { Title = "Kickapoo (3)", Duration = 260, Genre = "rock", Lyrics = "lalalalalaalalalala" });
-            songs.Add(new Song { Title = "Help (4)", Duration = 232, Genre = "k-pop", Lyrics = "Help, i need somebody" });
-            songs.Add(new Song { Title = "MACHINE (5)", Duration = 522, Genre = "??", Lyrics = "01010000100010101101" });
-            songs.Add(new Song { Title = "Cancion del mariachi (6)", Duration = 500, Genre = "ohno", Lyrics = "lalalalalaalalalala2" });
-            songs.Add(new Song { Title = "San Francisco (7)", Duration = 500, Genre = "pop4", Lyrics = "lalalalalaalalalala" });
-            songs.Add(new Song { Title = "BFG Division (8)", Duration = 500, Genre = "hell", Lyrics = "...lalalalalaalalalala" });
-            songs.Add(new Song { Title = "Ghost Riders In The Sky (9)", Duration = 500, Genre = "pop6", Lyrics = "lalalalalaalalalala" });
-            songs.Add(new Song { Title = "the end 10 (10)", Duration = 500, Genre = "pop7", Lyrics = " lalalalalaalalalala" });
+            songs.Add(new Song { Title = "eye of a tiger (1)", Duration = 500, Genre = "rock", Lyrics = "lalalalalaalalalala", Like = null});
+            songs.Add(new Song { Title = "smooth criminal (2)", Duration = 500, Genre = "pop", Lyrics = "lalalalalaalalalala", Like = null });
+            songs.Add(new Song { Title = "Kickapoo (3)", Duration = 260, Genre = "rock", Lyrics = "lalalalalaalalalala", Like = null });
+            songs.Add(new Song { Title = "Help (4)", Duration = 232, Genre = "k-pop", Lyrics = "Help, i need somebody", Like = null });
+            songs.Add(new Song { Title = "MACHINE (5)", Duration = 522, Genre = "??", Lyrics = "01010000100010101101", Like = null });
+            songs.Add(new Song { Title = "Cancion del mariachi (6)", Duration = 500, Genre = "ohno", Lyrics = "lalalalalaalalalala2", Like = null });
+            songs.Add(new Song { Title = "San Francisco (7)", Duration = 500, Genre = "pop4", Lyrics = "lalalalalaalalalala", Like = null });
+            songs.Add(new Song { Title = "BFG Division (8)", Duration = 500, Genre = "hell", Lyrics = "...lalalalalaalalalala", Like = null });
+            songs.Add(new Song { Title = "Ghost Riders In The Sky (9)", Duration = 500, Genre = "pop6", Lyrics = "lalalalalaalalalala", Like = null });
+            songs.Add(new Song { Title = "the end 10 (10)", Duration = 500, Genre = "pop7", Lyrics = " lalalalalaalalalala", Like = null });
+
+            songs[1].Set_Like();
+            songs[3].Set_DisLike();
+            songs[6].Set_Like();
+            songs[8].Set_Like();
+            songs[9].Set_DisLike();
 
             foreach (Song p in songs)
             {
-                Console.WriteLine(p.Title + " " + p.Duration + " " + p.Genre + " " + p.Lyrics);
+                if (p.Like==false)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(p.Title + " " + p.Duration + " " + p.Genre + " " + p.Lyrics);
+                    Console.ResetColor();
+                }
+                else if (p.Like == true)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine(p.Title + " " + p.Duration + " " + p.Genre + " " + p.Lyrics);
+                    Console.ResetColor();
+                }
+
+                else
+                {
+                    Console.WriteLine(p.Title + " " + p.Duration + " " + p.Genre + " " + p.Lyrics);
+                }
+
+
             }
             Console.WriteLine(" ");
             return songs;

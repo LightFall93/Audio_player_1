@@ -16,6 +16,7 @@ namespace Audio_player
         static void Main(string[] args)
          {
              Player player_new = new Player();
+             Song song_new = new Song();
             /*while (true)
             {
                 switch (Console.ReadLine())
@@ -68,7 +69,9 @@ namespace Audio_player
             
             //player_new.Play(true);
             player_new.SortByTitle();
-            player_new.Play(false);
+            //player_new.Play(false);
+            
+
             Console.ReadKey();
         }
 
