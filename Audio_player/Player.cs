@@ -10,21 +10,14 @@ namespace Audio_player
 {
     public class Player
     {
-
         private int volume;
         public int step;
         private bool playing;
         public   bool Locked = false;
         public const int maxVolume = 300;
         public const int minVolume = 300;
-        public int Duration;
-        public string Genre;
-        public string Lyrics; 
-        public string Path;
-        public string Title;
-        public List<Song> songs = new List<Song>();
 
-        
+        public List<Song> songs = new List<Song>();
 
         bool Playing
         {
@@ -53,13 +46,10 @@ namespace Audio_player
              }
          }
 
-          
-
         public void GetInfo()
         {
             Console.WriteLine(" " + maxVolume);
         }
-
 
         public void VolumeUp()
         {
@@ -117,19 +107,19 @@ namespace Audio_player
             return playing;
         }
 
-
         public List<Song> AddSongs()
         {
-            songs.Add(new Song { Title = "eye of a tiger (1)", Duration = 500, Genre = "rock", Lyrics = "lalalalalaalalalala", Like = null});
-            songs.Add(new Song { Title = "smooth criminal (2)", Duration = 500, Genre = "pop", Lyrics = "lalalalalaalalalala", Like = null });
-            songs.Add(new Song { Title = "Kickapoo (3)", Duration = 260, Genre = "rock", Lyrics = "lalalalalaalalalala", Like = null });
-            songs.Add(new Song { Title = "Help (4)", Duration = 232, Genre = "k-pop", Lyrics = "Help, i need somebody", Like = null });
-            songs.Add(new Song { Title = "MACHINE (5)", Duration = 522, Genre = "??", Lyrics = "01010000100010101101", Like = null });
-            songs.Add(new Song { Title = "Cancion del mariachi (6)", Duration = 500, Genre = "ohno", Lyrics = "lalalalalaalalalala2", Like = null });
-            songs.Add(new Song { Title = "San Francisco (7)", Duration = 500, Genre = "pop4", Lyrics = "lalalalalaalalalala", Like = null });
-            songs.Add(new Song { Title = "BFG Division (8)", Duration = 500, Genre = "hell", Lyrics = "...lalalalalaalalalala", Like = null });
-            songs.Add(new Song { Title = "Ghost Riders In The Sky (9)", Duration = 500, Genre = "pop6", Lyrics = "lalalalalaalalalala", Like = null });
-            songs.Add(new Song { Title = "the end 10 (10)", Duration = 500, Genre = "pop7", Lyrics = " lalalalalaalalalala", Like = null });
+            songs.Add(new Song { Title = "eye of a tiger (1)", Duration = 500, Genre = Genre.Rock, Lyrics = "lalalalalaalalalala", Like = null});
+            songs.Add(new Song { Title = "smooth criminal (2)", Duration = 500, Genre = Genre.Pop, Lyrics = "lalalalalaalalalala", Like = null });
+            songs.Add(new Song { Title = "Kickapoo (3)", Duration = 260, Genre = Genre.Rock, Lyrics = "lalalalalaalalalala", Like = null });
+            songs.Add(new Song { Title = "Help (4)", Duration = 232, Genre = Genre.Soundtrack,Lyrics = "Help, i need somebody", Like = null });
+            songs.Add(new Song { Title = "MACHINE (5)", Duration = 522, Genre = Genre.Soundtrack, Lyrics = "01010000100010101101", Like = null });
+            songs.Add(new Song { Title = "Cancion del mariachi (6)", Duration = 500, Genre = Genre.Indie_Rock, Lyrics = "lalalalalaalalalala2", Like = null });
+            songs.Add(new Song { Title = "San Francisco (7)", Duration = 500, Genre = Genre.Pop, Lyrics = "lalalalalaalalalala", Like = null });
+            songs.Add(new Song { Title = "BFG Division (8)", Duration = 500, Genre = Genre.Soundtrack, Lyrics = "...lalalalalaalalalala", Like = null });
+            songs.Add(new Song { Title = "Ghost Riders In The Sky (9)", Duration = 500, Genre = Genre.Rock, Lyrics = "lalalalalaalalalala", Like = null });
+            songs.Add(new Song { Title = "the end 10 (10)", Duration = 500, Genre = Genre.Folk, Lyrics = " lalalalalaalalalala", Like = null });
+            
 
             songs[1].Set_Like();
             songs[3].Set_DisLike();
@@ -142,7 +132,7 @@ namespace Audio_player
                 if (p.Like==false)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine(p.Title + " " + p.Duration + " " + p.Genre + " " + p.Lyrics);
+                    Console.WriteLine(p.Title + " " + p.Duration + " " + p.Genre + " " + p.Lyrics+p.Genre);
                     Console.ResetColor();
                 }
                 else if (p.Like == true)
@@ -166,7 +156,6 @@ namespace Audio_player
         public void  Play(bool loop)// Heres Plays metod*/////////////////////////////
         {
             
-           
             if (loop == false)
             {
                 for (int i = 0; i < songs.Count; i++)
@@ -185,7 +174,6 @@ namespace Audio_player
                 do
                 {
                     
-               
                  for (int i = 0; i < songs.Count; i++)
                   {
                       Console.WriteLine("Песня (Title): " + songs[i].Title);
@@ -201,11 +189,8 @@ namespace Audio_player
             }
         }
 
-      
-
         public void Shuffle()
         {
-           
             List<Song> songs_shuffled = new List<Song>();
 
             for (int j = 1; j <= songs.Capacity; j += 3)
@@ -216,7 +201,6 @@ namespace Audio_player
                 }
                 else { break; }
             }
-
 
             for (int i = 0; i <= songs.Capacity; i += 3)
             {
@@ -249,19 +233,7 @@ namespace Audio_player
             songs = songs_shuffled;
 
         }
-       
 
-        public string Title2
-        {
-            get { return Title; }
-            set { Title = value; }
-        }
-
-        /*public Player(string a)
-        {
-            Title = a;
-
-        }*/
 
         public  void SortByTitle() 
         {
@@ -301,8 +273,70 @@ namespace Audio_player
         }
 
         
+        public void FilterByGenre()
+        {
+            Console.WriteLine("Enter your genre for filtering");
 
+            Genre genre_selected = Console.ReadLine();
+            //int genre_selected = Convert.ToInt32(Console.ReadLine());
 
+            List<Song> songs_filtered = new List<Song>();
 
+            switch (Genre)
+            {
+                case Operation.Add:
+                    result = x + y;
+                    break;
+                case Operation.Subtract:
+                    result = x - y;
+                    break;
+                case Operation.Multiply:
+                    result = x * y;
+                    break;
+                case Operation.Divide:
+                    result = x / y;
+                    break;
+            }
+
+            for (int j = 1; j <= songs.Capacity; j += 3)
+            {
+                if (songs[j].Genre== genre_selected)
+                {
+                    songs_shuffled.Add(songs[j]);
+                }
+                else { break; }
+            }
+
+            for (int i = 0; i <= songs.Capacity; i += 3)
+            {
+                if (i <= 9)
+                {
+                    songs_shuffled.Add(songs[i]);
+                }
+                else { break; }
+            }
+
+            for (int k = 2; k <= songs.Capacity; k += 3)
+            {
+                if (k <= 9)
+                {
+                    songs_shuffled.Add(songs[k]);
+                }
+                else { break; }
+            }
+
+            /* Console.WriteLine("");
+             Console.WriteLine("После сортировки");
+             Console.WriteLine("");
+
+             foreach (Song d in songs_shuffled)
+             {
+
+                 Console.WriteLine(d.Title + " " + d.Duration + " " + d.Genre + " " + d.Lyrics);
+             }*/
+
+            songs = songs_shuffled;
+
+        }
     }
 }

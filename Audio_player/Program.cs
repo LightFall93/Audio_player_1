@@ -17,6 +17,7 @@ namespace Audio_player
          {
              Player player_new = new Player();
              Song song_new = new Song();
+             
             /*while (true)
             {
                 switch (Console.ReadLine())
@@ -64,14 +65,14 @@ namespace Audio_player
             //AddArtist(Name:"dam");
             //AddAlbum();
             //AddAlbum(Name:"dam",Year:'1');
+
             player_new.AddSongs();
             //player_new.Shuffle();
-            
-            //player_new.Play(true);
-            player_new.SortByTitle();
+            player_new.Play(true);
+            //player_new.SortByTitle();
             //player_new.Play(false);
-            
-
+            //song_new.Set_genres();
+           
             Console.ReadKey();
         }
 
@@ -84,7 +85,7 @@ namespace Audio_player
                 Title = "default song",
                 Path = "default song",
                 Lyrics = "default song",
-                Genre = "default song",
+                Genre = Genre.Witout_genre,
                 Artist = new Artist(),
                 Playlist = new Playlist()
             };
@@ -102,7 +103,7 @@ namespace Audio_player
             return song_name;
          }
 
-         private object Create(string Name,int time,string place,string words,string type)
+         private object Create(string Name,int time,string place,string words,Genre type)
          {
              Random rand = new Random();
             Song song_name = new Song()
@@ -140,9 +141,6 @@ namespace Audio_player
                  MaxDuration = songs1.Duration > MaxDuration ? songs1.Duration : MaxDuration;
                 
              }
-
-
-
              
         }
 
@@ -164,9 +162,6 @@ namespace Audio_player
             Console.WriteLine($""+Name +" "+ Year);
             return album1;
         }
-
-
-
 
     }
 }
