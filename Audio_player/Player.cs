@@ -273,70 +273,88 @@ namespace Audio_player
         }
 
         
-        public void FilterByGenre()
+        public void FilterByGenre(Genre genre)
         {
-            Console.WriteLine("Enter your genre for filtering");
-
-            Genre genre_selected = Console.ReadLine();
-            //int genre_selected = Convert.ToInt32(Console.ReadLine());
-
             List<Song> songs_filtered = new List<Song>();
 
-            switch (Genre)
+            switch (genre)
             {
-                case Operation.Add:
-                    result = x + y;
-                    break;
-                case Operation.Subtract:
-                    result = x - y;
-                    break;
-                case Operation.Multiply:
-                    result = x * y;
-                    break;
-                case Operation.Divide:
-                    result = x / y;
-                    break;
-            }
-
-            for (int j = 1; j <= songs.Capacity; j += 3)
-            {
-                if (songs[j].Genre== genre_selected)
+                case Genre.Rock:
                 {
-                    songs_shuffled.Add(songs[j]);
-                }
-                else { break; }
-            }
+                    for (int j = 0; j < songs.Count; j++)
+                    {
+                        if (songs[j].Genre == Genre.Rock)
+                        {
+                            songs_filtered.Add(songs[j]);
 
-            for (int i = 0; i <= songs.Capacity; i += 3)
-            {
-                if (i <= 9)
+                        }
+                    }
+                        break;
+                }
+
+                case Genre.Folk:
                 {
-                    songs_shuffled.Add(songs[i]);
-                }
-                else { break; }
-            }
+                    for (int j = 0; j < songs.Count; j++)
+                    {
+                        if (songs[j].Genre == Genre.Folk)
+                        {
+                            songs_filtered.Add(songs[j]);
 
-            for (int k = 2; k <= songs.Capacity; k += 3)
-            {
-                if (k <= 9)
+                        }
+                    }
+                        break;
+                }
+
+                case Genre.Indie_Rock:
                 {
-                    songs_shuffled.Add(songs[k]);
+                    for (int j = 0; j < songs.Count; j++)
+                    {
+                        if (songs[j].Genre == Genre.Indie_Rock)
+                        {
+                            songs_filtered.Add(songs[j]);
+
+                        }
+                    }
+                        break;
                 }
-                else { break; }
+
+                case Genre.Pop:
+                {
+                    for (int j = 0; j < songs.Count; j++)
+                    {
+                        if (songs[j].Genre == Genre.Pop)
+                        {
+                            songs_filtered.Add(songs[j]);
+
+                        }
+                    }
+                        break;
+                }
+
+                case Genre.Soundtrack:
+                {
+                    for (int j = 0; j < songs.Count; j++)
+                    {
+                        if (songs[j].Genre == Genre.Soundtrack)
+                        {
+                            songs_filtered.Add(songs[j]);
+
+                        }
+                    }
+                        break;
+                }
             }
 
-            /* Console.WriteLine("");
-             Console.WriteLine("После сортировки");
+             Console.WriteLine("");
+             Console.WriteLine("After genre filtering by "+genre);
              Console.WriteLine("");
 
-             foreach (Song d in songs_shuffled)
+             foreach (Song d in songs_filtered)
              {
-
                  Console.WriteLine(d.Title + " " + d.Duration + " " + d.Genre + " " + d.Lyrics);
-             }*/
+             }
 
-            songs = songs_shuffled;
-
+             songs = songs_filtered;
         }
     }
 }

@@ -68,11 +68,15 @@ namespace Audio_player
 
             player_new.AddSongs();
             //player_new.Shuffle();
-            player_new.Play(true);
+            //player_new.Play(true);
             //player_new.SortByTitle();
             //player_new.Play(false);
-            //song_new.Set_genres();
-           
+
+            //player_new.FilterByGenre(Genre.Rock);
+            player_new.FilterByGenre(Genre.Soundtrack);
+            
+
+
             Console.ReadKey();
         }
 
