@@ -17,7 +17,7 @@ namespace Audio_player
          {
              Player player_new = new Player();
              Song song_new = new Song();
-             
+
             /*while (true)
             {
                 switch (Console.ReadLine())
@@ -72,9 +72,11 @@ namespace Audio_player
             //player_new.SortByTitle();
             //player_new.Play(false);
 
-            //player_new.FilterByGenre(Genre.Rock);
-            player_new.FilterByGenre(Genre.Soundtrack);
-            
+            player_new.FilterByGenre(Genre.Rock);
+            //player_new.FilterByGenre(Genre.Soundtrack);
+
+            //player_new.Load();
+
 
 
             Console.ReadKey();

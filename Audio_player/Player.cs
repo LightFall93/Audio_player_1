@@ -1,10 +1,12 @@
 ﻿using System;
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace Audio_player
 {
@@ -105,6 +107,29 @@ namespace Audio_player
             Console.WriteLine("player start playing ");
 
             return playing;
+        }
+
+        public void Load()
+        {
+            string file_place;
+            Console.WriteLine("Enter your file destination");
+            file_place = Console.ReadLine();
+
+            var directoryInfo = new DirectoryInfo(file_place);
+            // "E://C#//wav"
+            var file_mas = directoryInfo.GetFiles();
+
+            foreach (var item in file_mas)
+            {
+                Console.WriteLine(item.FullName + item.CreationTime + item.Length);
+            }
+
+        }
+
+        public void Clear()
+        {
+        
+
         }
 
         public List<Song> AddSongs()
@@ -277,76 +302,21 @@ namespace Audio_player
         {
             List<Song> songs_filtered = new List<Song>();
 
-            switch (genre)
+
+            for (int j = 0; j < songs.Count; j++)
             {
-                case Genre.Rock:
+                if (songs[j].Genre == genre)
                 {
-                    for (int j = 0; j < songs.Count; j++)
-                    {
-                        if (songs[j].Genre == Genre.Rock)
-                        {
-                            songs_filtered.Add(songs[j]);
+                    songs_filtered.Add(songs[j]);
 
-                        }
-                    }
-                        break;
-                }
-
-                case Genre.Folk:
-                {
-                    for (int j = 0; j < songs.Count; j++)
-                    {
-                        if (songs[j].Genre == Genre.Folk)
-                        {
-                            songs_filtered.Add(songs[j]);
-
-                        }
-                    }
-                        break;
-                }
-
-                case Genre.Indie_Rock:
-                {
-                    for (int j = 0; j < songs.Count; j++)
-                    {
-                        if (songs[j].Genre == Genre.Indie_Rock)
-                        {
-                            songs_filtered.Add(songs[j]);
-
-                        }
-                    }
-                        break;
-                }
-
-                case Genre.Pop:
-                {
-                    for (int j = 0; j < songs.Count; j++)
-                    {
-                        if (songs[j].Genre == Genre.Pop)
-                        {
-                            songs_filtered.Add(songs[j]);
-
-                        }
-                    }
-                        break;
-                }
-
-                case Genre.Soundtrack:
-                {
-                    for (int j = 0; j < songs.Count; j++)
-                    {
-                        if (songs[j].Genre == Genre.Soundtrack)
-                        {
-                            songs_filtered.Add(songs[j]);
-
-                        }
-                    }
-                        break;
                 }
             }
 
-             Console.WriteLine("");
-             Console.WriteLine("After genre filtering by "+genre);
+
+
+
+            Console.WriteLine("");
+             Console.WriteLine("zzAfter genre filtering by "+genre);
              Console.WriteLine("");
 
              foreach (Song d in songs_filtered)
